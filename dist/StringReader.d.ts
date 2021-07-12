@@ -1,0 +1,36 @@
+export declare class StringReader {
+    private static readonly SYNTAX_ESCAPE;
+    private static readonly SYNTAX_DOUBLE_QUOTE;
+    private static readonly SYNTAX_SINGLE_QUOTE;
+    private static readonly whitespaceCharacters;
+    private readonly string;
+    private cursor;
+    constructor(other: StringReader);
+    constructor(string: string);
+    getString(): string;
+    setCursor(cursor: number): void;
+    getRemainingLength(): number;
+    getTotalLength(): number;
+    getCursor(): number;
+    getRead(): string;
+    getRemaining(): string;
+    canRead(length?: number): boolean;
+    peek(offset?: number): string;
+    read(): string;
+    skip(): void;
+    static isAllowedNumber(c: string): boolean;
+    static isQuotedStringStart(c: string): boolean;
+    static isWhitespace(c: string): boolean;
+    skipWhitespace(): void;
+    readInt(): number;
+    readFloat(): number;
+    readDouble(): number;
+    readLong(): bigint;
+    static isAllowedInUnquotedString(c: string): boolean;
+    readStringUntil(terminator: string): string;
+    readUnquotedString(): string;
+    readQuotedString(): string;
+    readString(): string;
+    readBoolean(): boolean;
+    expect(c: string): void;
+}
